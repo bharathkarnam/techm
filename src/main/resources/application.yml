@@ -1,0 +1,4 @@
+server:  port: 8090  ssl:    key-store: classpath:localhost.p12    key-store-password: password    key-alias: localhost    keyStoreType: PKCS12  
+spring:
+  application:
+    name: core

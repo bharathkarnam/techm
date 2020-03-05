@@ -1,0 +1,123 @@
+swagger: '2.0'
+info:
+  description: 'This document gives you all you need about User related activities i.e. insert and view '
+  version: '1.0'
+  title: User Entity Management Api
+host: 'localhost:8090'
+basePath: /
+tags:
+  - name: Userdetails API
+    description: Main Controller
+paths:
+  /api/InsertUserDetails:
+    post:
+      tags:
+        - Userdetails API
+      summary: insertUserdetails
+      operationId: insertUserdetailsUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: user
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  '/api/ViewUserDetails/{id}':
+    get:
+      tags:
+        - Userdetails API
+      summary: getUserDetail
+      operationId: getUserDetailUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /api/pingService:
+    get:
+      tags:
+        - Userdetails API
+      summary: Ping
+      operationId: PingUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+definitions:
+  User:
+    type: object
+    required:
+      - address
+      - designation
+      - mobilenumber
+      - name
+      - role
+      - skills
+      - totalyearsOfexperience
+    properties:
+      address:
+        type: string
+      designation:
+        type: string
+      mobilenumber:
+        type: integer
+        format: int64
+      name:
+        type: string
+      role:
+        type: string
+      skills:
+        type: array
+        items:
+          type: string
+      totalyearsOfexperience:
+        type: number
+        format: double
+      uniqId:
+        type: string
