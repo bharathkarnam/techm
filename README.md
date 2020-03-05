@@ -19,4 +19,4 @@ keytool -v -importkeystore -srckeystore localhost.p12 -srcstoretype PKCS12 -dest
 for more https://jackstromberg.com/2013/05/importing-a-ssl-certificate-into-a-java-keystore-via-a-pkcs12-file/
 
 ## flow of things
-[](IMG_3865.jpg)
+<img src="techm/IMG_3865.jpg" >
